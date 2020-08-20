@@ -1,0 +1,865 @@
+body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Raleway", sans-serif
+}
+
+/*PAGE FONTS*/
+body,h1 {font-family: "Raleway", sans-serif}
+
+
+
+/*LOGO*/
+.logo{
+  color: white;
+  font-family: Tahoma;
+  font-size: 180%;
+  padding-left: 25px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+/*SIDEBAR ICON*/
+.sidebar_icon{
+  float: right;
+  color: white;
+  font-family: Tahoma;
+  font-size: 30x;
+  padding-right: 30px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+
+/*SIDEBAR*/
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+    font-family: Arial;
+}
+
+.sidebar p {
+  padding: 0px 0px 40px 0px;
+  text-decoration: none;
+  font-size: 23px;
+  color: silver;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.sidebar p:hover {
+  color: white;
+}
+
+.sidebar .closesidebar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  cursor: pointer;
+  margin-left: 50px;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+
+  .sidebar p {
+    font-size: 15px;
+  }
+}
+
+
+
+
+/*AIR POLLUTION BOX*/
+.airbox {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+
+/*AIR POLLUTION DATA*/
+/*AQI*/
+
+.aqi{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+
+
+/*CO*/
+.co{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*MOLD LEVEL*/
+.mold_level{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*NO2*/
+.no2{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+
+/*O3*/
+.o3{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*PM10*/
+.pm10{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*SO2*/
+.so2{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*PM25*/
+.pm25{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+
+/*GRASS*/
+.grass{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*WEED*/
+.weed{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*TREE*/
+.tree{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*PREDOM*/
+.predom{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+/*STATE CODE*/
+.state_code{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+
+
+
+
+/*FORECAST SIDE BOX*/
+.fore_sidebox {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+
+.mapbox {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow-x: hidden;
+      transition: 0.5s;
+}
+
+
+
+/*ALERTS*/
+.heading{
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 105%;
+}	
+
+
+/*SEARCH BAR*/
+header{
+  max-width:1100px;
+}
+
+header input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  margin-left: 10%;
+  width: 80%;
+  background: transparent;
+  border-bottom: 2px solid white;
+  outline: 0;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: white;
+}
+
+.search-button{
+color: white;
+padding: 15px;
+margin-left: -30px;
+}
+
+
+
+
+
+/*CONTAINER 1 */
+
+/*CITY NAME*/
+.city{
+  color: white;
+  text-align: center;
+  font-family: Arial;
+  font-weight: bold;
+}
+/*DATE-MONTH-YEAR*/
+.D-M-Y{
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+/*COUNTRY*/
+.country{
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+/*TEMPERATURE*/
+.temperature{
+  font-size: 80px;
+  font-family: Segoe UI;
+  text-align: center;
+  color: white;
+}
+
+.temperature mark{
+  background: none;
+  color: white;
+}
+
+/*IMAGE*/
+.temp_img{
+  margin-left: 10px;
+  width: 50px;
+}
+
+
+
+/*CONTAINER 2*/
+/*HUMIDITY*/
+.humidity{
+  color: white;
+  float: left;
+  text-align: center;
+}
+/*HUMIDITY IMAGE*/
+.humidity img{
+  width: 30px;
+}
+/*HUMIDITY VALUE*/
+.humidity mark{
+  background: transparent;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+/*FEELS LIKE*/
+.feels_like{
+  color: white;
+  float: right;
+  text-align: center;
+  margin-right: 10px;
+}
+/*FEELS LIKE IMAGE*/
+.feels_like img{
+  width: 30px;
+}
+/*FEELS LIKE VALUE*/
+.feels_like mark{
+  background: transparent;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+/*PRESSURE*/
+.pressure{
+  color: white;
+  float: left;
+  text-align: center;
+} 
+/*PRESSURE IMAGE*/
+.pressure img{
+  width: 25px;
+}
+
+/*PRESSURE VALUE*/
+.pressure mark{
+  background: transparent;
+  color: white;
+  font-family: 'Segoe UI';
+  margin-left: 10px;
+}
+
+
+/*DESCRIPTION*/
+.wind_degree{
+  text-align: center;
+  color: white;
+  float: right;
+}
+/*DESCRIPTION IMAGE*/
+.wind_degree img{
+  width: 25px;
+}
+/*DESCRIPTION VALUE*/
+.wind_degree mark{
+  text-align: center;
+  background: transparent;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+
+
+
+
+/*WIND*/
+.wind_speed{
+  color: white;
+  float: left;
+  text-align: center;
+} 
+/*WIND IMAGE*/
+.wind_speed img{
+  width: 25px;
+}
+
+/*WINDE VALUE*/
+.wind_speed mark{
+  background: transparent;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+
+
+/*VISIBILITY*/
+.visibility{
+  color: white;
+  float: right;
+  text-align: center;
+  margin-right: 20px;
+}
+/*VISIBILITY IMAGE*/
+.visibility img{
+  width: 25px;
+}
+/*VISIBILITYE VALUE*/
+.visibility mark{
+  background: transparent;
+  color: white;
+  font-family: 'Arial';
+  font-family: 'Segoe UI';
+}
+
+
+
+/*GOOGLE MAP*/
+.map{
+  width:75%;
+  height:220px;
+  border:0;
+  margin-left: 45px;
+}
+
+
+
+
+
+
+/*FORECAST*/
+/*FORECAST LEFT*/
+.forecast-left{
+  border: 1px solid white;
+  text-align: center;
+  font-size: 130%;
+  font-family: 'Segoe UI';
+  width: 100px;
+  float: left;
+  margin-left: 15px;
+  color: white;
+  cursor: pointer;
+}
+.forecast-left img{
+  width:40px;
+  height:40px;
+}
+.forecast-left:hover{
+  transform:scale(1.1,1.1);
+	transition:all .3s ease;
+}
+
+
+/*FORECAST RIGHT*/
+.forecast-right{
+  border: 1px solid white;
+  text-align: center;
+  font-size: 130%;
+  font-family: 'Segoe UI';
+  width: 100px;
+  float: right;
+  margin-right: 15px;
+  color: white;
+  cursor: pointer;
+}
+.forecast-right img{
+  width:40px;
+  height:40px;
+}
+.forecast-right:hover{
+  transform:scale(1.1,1.1);
+	transition:all .2s ease;
+} 
+
+
+
+
+
+
+  /*******************************************************************************LARGE FOREBOX HOVER *******************************************************************************************/
+
+  /*FORECAST LARGE BOX HOVER*/
+  /* Center the image and position the close button */
+  .image_container {
+    text-align: center;
+    margin: 15px 0 12px 0;
+    position: relative;
+  }
+
+
+
+
+  /* The Modal (background) */
+  .fore_box {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .fore_box-content {
+    border-radius: 30px;
+    background-color: black;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button (x) */
+  .close_forebox {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: yellow;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close_forebox:hover,
+  .close_forebox:focus {
+    color: yellow;
+    cursor: pointer;
+  }
+
+  /* Add Zoom Animation */
+  .forebox_animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {
+      -webkit-transform: scale(0)
+    }
+
+    to {
+      -webkit-transform: scale(1)
+    }
+  }
+
+  @keyframes animatezoom {
+    from {
+      transform: scale(0)
+    }
+
+    to {
+      transform: scale(1)
+    }
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+
+
+
+
+
+
+  .feels_temp {
+    border: 1px solid white;
+    font-size: large;
+  }
+
+
+  .feel_temp mark {
+    color: white;
+    background: none;
+  }
+
+
+  .fore_perci{
+    color: white;
+    background: none;
+  }
+
+
+  .first {
+    color: white;
+    text-align: center;
+  }
+
+
+  .fore_D-M-Y {
+    font-size: large;
+  }
+
+  .fore_desc {
+    font-size: large;
+  }
+
+
+  .fore_temperature {
+    font-family: Segoe UI;
+    font-size: 50px;
+    background: none;
+    color: white;
+  }
+  
+  .fore_temperature mark{
+  	background:none;
+  	color: white;
+  }
+
+  .fore_img {
+    width: 40px;
+    height: 40px;
+    margin-left: -7px;
+    margin-top: -18px;
+  }
+
+
+  /***************************************************************************************/
+
+
+  /*ADDITIONAL DETAILS*/
+  .fore_additional {
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  /*LATITUDE*/
+  .fore_humi {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+  .fore_press {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+  .fore_feels {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+  .fore_wind_d {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+  .fore_sun_rise {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+  .fore_sun_set {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+  .fore_wind_s {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_visi {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_dew {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_pop {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_clouds {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_rain {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+  
+  .fore_snow {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_ozone {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_min_t {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_max_t {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_uvi {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .fore_main {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+  
+   .fore_moon_phase  {
+    background: none;
+    color: white;
+    font-family: 'Segoe UI';
+  }
+
+
+  .heading{
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 105%;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /*ADDITIONAL DETAILS*/
+.additional{
+  text-align: center;
+  color: white;
+  font-family: 'Segoe UI';
+}
+
+
+/*LATITUDE*/
+.lat{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*LATITUDE*/
+.lon{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*Max TEMP*/
+.max_temp{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*MIN TEMP*/
+.min_temp{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*SUN RISE*/
+.sun_rise{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*SUN SET*/
+.sun_set{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*SUN SET*/
+.timezone{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
+/*SUN SET*/
+.cloud_main{
+  background: none;
+  color: white;
+  font-family: 'Segoe UI';
+}
