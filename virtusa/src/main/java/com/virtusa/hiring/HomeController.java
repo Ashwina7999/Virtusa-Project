@@ -22,6 +22,12 @@ public class HomeController
 	@Autowired
 	AlienRepo repo;
 		
+	
+	@RequestMapping("/login")
+	public String login()
+	{
+		return "login";
+	}
 
 	@RequestMapping("/register")
 	public String register()
@@ -36,33 +42,27 @@ public class HomeController
 		return "edit profile";
 	}
 	
-	@PostMapping(value="addregister")
-	public String addregister(@ModelAttribute Reg a)
-	{
-		repo.save(a);
-		return "login";
-	}
 	
-	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+		
+	@RequestMapping(value = "/addlogin", method = RequestMethod.POST)
 	public String loginvalid(
 		@RequestParam("email") String email,
 		@RequestParam("password") String password,
 		HttpSession session,
 		ModelMap modelMap) {
 			
-		Reg name = repo.findByEmailAndPassword(email, password);
+		Reg field = repo.findByEmailAndPassword(email, password);
 		try {
-		if(email.equalsIgnoreCase(name.getEmail()) && password.equalsIgnoreCase(name.getPassword())) {
-			session.setAttribute("name", name.getName());
-			session.setAttribute("email", name.getEmail());
-			session.setAttribute("password", name.getPassword());
-			session.setAttribute("gender", name.getGender());
-			session.setAttribute("phone", name.getPhone());
-			session.setAttribute("city", name.getCity());
-			session.setAttribute("country", name.getCountry());
+		if(email.equalsIgnoreCase(field.getEmail()) && password.equalsIgnoreCase(field.getPassword())) {
+			session.setAttribute("name", field.getName());
+			session.setAttribute("email", field.getEmail());
+			session.setAttribute("password", field.getPassword());
+			session.setAttribute("gender", field.getGender());
+			session.setAttribute("phone", field.getPhone());
+			session.setAttribute("city", field.getCity());
+			session.setAttribute("country", field.getCountry());
 			
-			session.setAttribute("logged1","yes");
+			session.setAttribute("logged","yes");
 			return "index";
 			
 
@@ -76,10 +76,32 @@ public class HomeController
 	}
 	
 	
+	
+	@RequestMapping(value = "/addregister", method = RequestMethod.POST)
+	public String addregister(
+		HttpSession session, @ModelAttribute Reg a) {
+		
+		repo.save(a);	
+		
+			session.setAttribute("name", a.getName());
+			session.setAttribute("email", a.getEmail());
+			session.setAttribute("password", a.getPassword());
+			session.setAttribute("gender", a.getGender());
+			session.setAttribute("phone", a.getPhone());
+			session.setAttribute("city", a.getCity());
+			session.setAttribute("country", a.getCountry());
+			
+			session.setAttribute("logged","yes");
+			return "index";
+	
+	}
+	
+	
+	
 	@RequestMapping("/")
 	public String home(HttpSession session,ModelMap modelMap)
 	{
-		if(session.getAttribute("logged1") == "yes")
+		if(session.getAttribute("logged") == "yes")
 		     return "index";
 		else
 		     return "login"; 
@@ -90,7 +112,7 @@ public class HomeController
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
-		session.removeAttribute("logged1");
+		session.removeAttribute("logged");
 		return "login";
 	}
 	
