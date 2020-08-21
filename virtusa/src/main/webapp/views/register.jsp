@@ -19,7 +19,7 @@
                 <h2>Register Page</h2>
                 <div class="form-group-1">
                     <input type="text" name="name" id="name" placeholder="Name" autocomplete="off" required />
-                    <input type="text" name="email" id="email" placeholder="Email" autocomplete="off" required />
+                    <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required />
                     <input type="password" name="password" id="password" placeholder="Password" required />
                     
                     
