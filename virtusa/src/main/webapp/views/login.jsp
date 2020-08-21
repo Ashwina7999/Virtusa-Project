@@ -26,7 +26,7 @@
 				<h1 class="title">Login</h1>
 				<br><br>
 				<div class="hold">
-					<input class="input" type="text" id="email" name="email" autocomplete="off" placeholder="Email" required="">
+					<input class="input" type="email" id="email" name="email" autocomplete="off" placeholder="Email" required="">
 					<span class="icons" data-placeholder="&#xf207;"></span>
 				</div>
 				<br>
