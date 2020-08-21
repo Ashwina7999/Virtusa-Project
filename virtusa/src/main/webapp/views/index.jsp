@@ -65,10 +65,10 @@
           <br>
 
           <h1 class="city">London</h1>
-          <p class="D-M-Y">Thursday, 20 August 2020</p>
+          <p class="D-M-Y">Friday, 21 August 2020</p>
           <p class="country">GB</P>
-          <p class="temperature"><mark class="temp">26</mark><mark
-              style="background:none;color: white;margin-left: -30px">°c</mark><img id="icon" class="temp_img"
+          <p class="temperature"><mark class="temp">24</mark><mark
+              style="background:none;color: white;margin-left: -30px">Â°c</mark><img id="icon" class="temp_img"
               style="margin-left: -13px" src="images/icons/03d.png"></p>
 
           <h5 class="description" style="color: white;text-align: center;font-weight: bold">scattered clouds</h5>
@@ -123,13 +123,13 @@
       <div class="w3-row-padding" id="about">
         <div class="w3-third w3-margin-bottom">
           <div id="bx1" class="forecast-left" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box1">FRI 21<br>
+            <P class="box1">SAT 22<br>
               <img src="images/icons/03d.png" style="margin-top: 15px;"><br>
               24&#176;c<br>23&#176;c</p>
           </div>
 
           <div id="bx2" class="forecast-right" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box2">SAT 22<br>
+            <P class="box2">SUN 23<br>
               <img src="images/icons/04d.png" style="margin-top: 15px;"><br>
               31&#176;c<br>23&#176;c</p>
           </div>
@@ -138,13 +138,13 @@
 
         <div class="w3-third w3-margin-bottom">
           <div id="bx3" class="forecast-left" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box3">SUN 23<br>
+            <P class="box3">MON 24<br>
               <img src="images/icons/04d.png" style="margin-top: 15px;"><br>
               27&#176;c<br>23&#176;c</p>
           </div>
 
           <div id="bx4" class="forecast-right" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box4">MON 24<br>
+            <P class="box4">TUE 25<br>
               <img src="images/icons/01d.png" style="margin-top: 15px;"><br>
               30&#176;c<br>23&#176;c</p>
           </div>
@@ -153,7 +153,7 @@
 
         <div class="w3-third w3-margin-bottom">
           <div id="bx5" class="forecast-left" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box5">TUE 25<br>
+            <P class="box5">WED 26<br>
               <img src="images/icons/04d.png" style="margin-top: 15px;"><br>
               26&#176;c<br>23&#176;c</p>
           </div>
@@ -567,7 +567,7 @@
                 <br><br>
                 <p class="fore_D-M-Y">Saturday, 15 August 2020</p>
                 <p class="fore_temperature"><mark class="fore_temp">27</mark><mark
-                    style="background:none;color: white;margin-left: -15px">°c</mark><img id="fore_icon"
+                    style="background:none;color: white;margin-left: -15px">Â°c</mark><img id="fore_icon"
                     class="temp_img" style="margin-left: -5px" src="images/icons/01d.png"></p>
                 <p class="fore_desc">haze</p>
 
@@ -760,7 +760,7 @@
                 <br><br>
                 <p class="fore_D-M-Y">Saturday, 15 August 2020</p>
                 <p class="fore_temperature"><mark class="fore_temp">26</mark><mark
-                    style="background:none;color: white;margin-left: -15px">°c</mark><img id="fore_icon"
+                    style="background:none;color: white;margin-left: -15px">Â°c</mark><img id="fore_icon"
                     class="temp_img" style="margin-left: -5px" src="images/icons/01d.png"></p>
                 <p class="fore_desc">haze</p>
 
