@@ -23,13 +23,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Name</label>
-                                    <input class="input--style-4" type="text" name="name" id="name" value="${sessionScope.name}">
+                                    <input class="input--style-4" type="text" name="name" id="name" autocomplete="off" value="${sessionScope.name}">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="text" name="email" id="email" value="${sessionScope.email}">
+                                    <input class="input--style-4" type="text" name="email" id="email" autocomplete="off" value="${sessionScope.email}">
                                 </div>
                             </div>
                         </div>
@@ -37,11 +37,11 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Gender</label>
-                                    <input class="input--style-4" type="text" name="gender" id="gender" value="${sessionScope.gender}">
+                                    <input class="input--style-4" type="text" name="gender" id="gender" autocomplete="off" value="${sessionScope.gender}">
                                 </div>
                                 <div class="input-group">
                                     <label class="label">Password</label>
-                                    <input class="input--style-4" type="text" name="password" id="password" value="${sessionScope.password}">
+                                    <input class="input--style-4" type="text" name="password" id="password" autocomplete="off" value="${sessionScope.password}">
                                 </div>
                             </div>
 
@@ -50,20 +50,20 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">City</label>
-                                    <input class="input--style-4" type="text" name="city" id="city" value="${sessionScope.city}">
+                                    <input class="input--style-4" type="text" name="city" id="city" autocomplete="off" value="${sessionScope.city}">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Country</label>
-                                    <input class="input--style-4" type="text" name="country" id="country" value="${sessionScope.country}">
+                                    <input class="input--style-4" type="text" name="country" id="country" autocomplete="off" value="${sessionScope.country}">
                                 </div>
                             </div>
                         </div>
                         <br>
                         <div class="input-group">
                             <label class="label">Phone Number</label>
-                            <input class="input--style-4" type="text" name="phone" id="phone" value="${sessionScope.phone}">
+                            <input class="input--style-4" type="text" name="phone" id="phone" autocomplete="off" value="${sessionScope.phone}">
                         </div>
                         <div class="p-t-15">
                             <button id="submit" style="display:none" class="btn btn--radius-2 btn--blue" type="submit">Update</button>
