@@ -22,7 +22,7 @@
 
 	<div class="contain">
 		<div class="wrap">
-			<form action="${pageContext.request.contextPath }/login" method="POST">
+			<form action="${pageContext.request.contextPath }/addlogin" method="POST">
 				<h1 class="title">Login</h1>
 				<br><br>
 				<div class="hold">
