@@ -9,6 +9,8 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link rel="icon" type="image/png" href="images/icons/edit.jpg" />
 <link href="CSS/edit.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -41,7 +43,9 @@
                                 </div>
                                 <div class="input-group">
                                     <label class="label">Password</label>
-                                    <input class="input--style-4" type="text" name="password" id="password" autocomplete="off" value="${sessionScope.password}">
+                                    <i class="far fa-eye" id="togglePassword" style="color: black;float: right;margin-top: -25px;cursor: pointer;margin-right: -10px"></i>
+                                    <input class="input--style-4" type="password" name="password" id="password" autocomplete="off" value="${sessionScope.password}">
+                                    
                                 </div>
                             </div>
 
@@ -73,6 +77,22 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    
+    
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
+    
+    </script>    
 
 </body>
 </html>
