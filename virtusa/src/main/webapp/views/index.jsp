@@ -65,7 +65,7 @@
           <br>
 
           <h1 class="city">London</h1>
-          <p class="D-M-Y">Wednesday, 26 August 2020</p>
+          <p class="D-M-Y">Friday, 28 August 2020</p>
           <p class="country">GB</P>
           <p class="temperature"><mark class="temp">24</mark><mark
               style="background:none;color: white;margin-left: -30px">°c</mark><img id="icon" class="temp_img"
@@ -123,13 +123,13 @@
       <div class="w3-row-padding" id="about">
         <div class="w3-third w3-margin-bottom">
           <div id="bx1" class="forecast-left" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box1">THUR 26<br>
+            <P class="box1">SAT 27<br>
               <img src="images/icons/03d.png" style="margin-top: 15px;"><br>
               24&#176;c<br>23&#176;c</p>
           </div>
 
           <div id="bx2" class="forecast-right" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box2">FRI 27<br>
+            <P class="box2">SUN 28<br>
               <img src="images/icons/04d.png" style="margin-top: 15px;"><br>
               31&#176;c<br>23&#176;c</p>
           </div>
@@ -138,13 +138,13 @@
 
         <div class="w3-third w3-margin-bottom">
           <div id="bx3" class="forecast-left" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box3">SAT 28<br>
+            <P class="box3">MON 29<br>
               <img src="images/icons/04d.png" style="margin-top: 15px;"><br>
               27&#176;c<br>23&#176;c</p>
           </div>
 
           <div id="bx4" class="forecast-right" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box4">SUN 29<br>
+            <P class="box4">TUE 30<br>
               <img src="images/icons/01d.png" style="margin-top: 15px;"><br>
               30&#176;c<br>23&#176;c</p>
           </div>
@@ -153,7 +153,7 @@
 
         <div class="w3-third w3-margin-bottom">
           <div id="bx5" class="forecast-left" onclick="document.getElementById('id01').style.display='block'">
-            <P class="box5">MON 30<br>
+            <P class="box5">WED 31<br>
               <img src="images/icons/04d.png" style="margin-top: 15px;"><br>
               26&#176;c<br>23&#176;c</p>
           </div>
