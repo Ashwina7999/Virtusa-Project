@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     });
 
-
+    getResults("london");
 
     function getResults(query) {
 
@@ -35,11 +35,11 @@ $(document).ready(function () {
         });
 
         //AIR QUALITY
-        //$.ajax({
-            //url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
-                //air_pollution(air);
-            //}
-        //});
+        $.ajax({
+            url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
+                air_pollution(air);
+            }
+        });
 
 
         //DAILY FORECAST 16 DAYS
