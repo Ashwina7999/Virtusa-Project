@@ -33,6 +33,8 @@
 
 <body>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
     <!-- BACKGROUND IMAGE -->
     <div class="bgimg w3-animate-opacity"
         style="background-image: url('images/bg/scattered clouds.jpg');height: auto;background-position: center;background-size: cover; ">
