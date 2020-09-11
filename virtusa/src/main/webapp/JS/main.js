@@ -11,9 +11,13 @@ const wb_api = {
 }
 
 
+//USER REGISTERED CITY IN DATABASE
+let cities = document.getElementById('cities').value;
+
 
 
 $(document).ready(function () {
+
     const searchbox = document.querySelector('.search-box');
     $(searchbox).keyup(function (evt) {
         if (evt.keyCode == 13) {
@@ -22,27 +26,25 @@ $(document).ready(function () {
 
     });
 
-    getResults("london");
+    getResults(cities);
 
     function getResults(query) {
 
-
-        //CURRENT WEATHER
+        //CURRENT WEATHER FROM OPEN WEATHER MAP 
         $.ajax({
             url: `${api.base}weather?q=${query}&units=metric&APPID=${api.key}`, success: function (result) {
                 displayResults(result);
             }
         });
 
-        //AIR QUALITY
-        $.ajax({
-            url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
-                air_pollution(air);
-            }
-        });
+        //AIR QUALITY FROM WEATHER BIT
+         $.ajax({
+             url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
+                 air_pollution(air);
+             }
+         });
 
-
-        //DAILY FORECAST 16 DAYS
+        //DAILY FORECAST 16 DAYS FROM WEATHER BIT
         $.ajax({
             url: `${wb_api.base}forecast/daily?city=${query}&units=metric&key=${wb_api.key}`, success: function (result) {
                 fcast = result;
@@ -51,14 +53,12 @@ $(document).ready(function () {
             }
         });
 
-
-        //ALERT BOX
+        //ALERT BOX FROM WEATHER BIT
         $.ajax({
             url: `${wb_api.base}alerts?city=${query}&key=${wb_api.key}`, success: function (alert) {
                 alert_open(alert);
             }
         });
-
 
     }
 
@@ -66,40 +66,35 @@ $(document).ready(function () {
 
     function displayResults(weather) {
 
-        console.log(weather);
+        console.log("Current Weather:"weather);
 
-		//DAILY FORECAST 7 DAYS
+        //DAILY FORECAST 7 DAYS FROM OPEN WEATHER MAP
         $.ajax({
-            url: `${api.base}onecall?lat=${weather.coord.lat}&lon=${weather.coord.lon}&units=metric&exclude=current,hourly&appid=${api.key}`, success: function (forecast) {
-                console.log(forecast);
+            url: `${api.base}onecall?lat=${weather.coord.lat}&lon=${weather.coord.lon}&units=metric&exclude=current,hourly,minutely&appid=${api.key}`, success: function (forecast) {
+                console.log("7 Days Forecast",forecast);
                 daily_forecast(forecast);
 
             }
         });
 
 
-
-
-
         //GOOGLE MAP
-		var map_large = new mapboxgl.Map({
-			container: 'map_large', // container id
-    		style: 'mapbox://styles/mapbox/streets-v11',
-    		center: { lat: `${weather.coord.lat}`, lng: `${weather.coord.lon}` }, // starting position
-    		zoom: 9 // starting zoom
-		});
-		var map = new mapboxgl.Map({
-    		container: 'map', // container id
-    		style: 'mapbox://styles/mapbox/streets-v11',
-    		center: { lat: `${weather.coord.lat}`, lng: `${weather.coord.lon}` }, // starting position
-    		zoom: 9 // starting zoom
-		});
-
+        var map_large = new mapboxgl.Map({
+            container: 'map_large', // container id
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: { lat: `${weather.coord.lat}`, lng: `${weather.coord.lon}` }, // starting position
+            zoom: 9 // starting zoom
+        });
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: { lat: `${weather.coord.lat}`, lng: `${weather.coord.lon}` }, // starting position
+            zoom: 9 // starting zoom
+        });
 
 
         //CITY
         $(".city").text(`${weather.name}`);
-
 
         //DATE-MONTH-YEAR
         let now = new Date();
@@ -119,12 +114,10 @@ $(document).ready(function () {
             return `${day}, ${date} ${month} ${year}`;
         }
 
-
         //COUNTRY
         $(".country").text(`${weather.sys.country}`);
 
-
-
+        //TEMPERATURE + ICONS
         $('.temp').text(Math.round(weather.main.temp));
         var iconcode = weather.weather[0].icon;
         var icon = "images/icons/" + iconcode + ".png";
@@ -161,7 +154,6 @@ $(document).ready(function () {
                 bgimg.style.backgroundImage = "url('images/bg/rain2.jpg')";
             }
         }
-
         else if (iconcode == "10d" || iconcode == "10n") {
             if (desc == "heavy intensity rain" || desc == "very heavy rain" || desc == "extreme rain") {
                 bgimg.style.backgroundImage = "url('images/bg/rain1.jpg')";
@@ -186,7 +178,6 @@ $(document).ready(function () {
             else {
                 bgimg.style.backgroundImage = "url('images/bg/mist_haze.jpg')";
             }
-
         }
 
 
@@ -216,9 +207,6 @@ $(document).ready(function () {
 
         //VISIBILITY
         $(".visible").text(`${weather.visibility}`);
-
-
-
 
 
         //LATITUDE
@@ -256,9 +244,6 @@ $(document).ready(function () {
         $(".cloud_main").text(`${weather.clouds.all} / ${weather.weather[0].main}`);
 
 
-
-
-
     }//CURRENT WEATHER END
 
 
@@ -266,7 +251,7 @@ $(document).ready(function () {
 
 
 
-//************************************************************* */
+//***************************************************************************************************
 
 var fcast = '';
 var fdate = generate(new Date());
@@ -292,7 +277,7 @@ function generate(now) {
 
 
 }
-//*************************************************************
+//**************************************************************************************************
 
 
 
@@ -307,37 +292,30 @@ function generate(now) {
 
 function daily_forecast(forecast) {
 
-
-
     //BOX 1
     let box1 = document.querySelector('.box1');
     let fore1 = foreBuilder(new Date(`${forecast.daily[1].dt}` * 1000));
-    const icon1 = forefind(fore1, `${forecast.daily[1].weather[0].icon}`, `${Math.round(forecast.daily[1].temp.day)}`, `${Math.round(forecast.daily[1].temp.min)}`, box1);
-
-
+    const icon1 = forefind(fore1, `${forecast.daily[1].weather[0].icon}`, `${Math.round(forecast.daily[1].temp.max)}`, `${Math.round(forecast.daily[1].temp.min)}`, box1);
 
     //BOX 2
     let box2 = document.querySelector('.box2');
     let fore2 = foreBuilder(new Date(`${forecast.daily[2].dt}` * 1000));
-    const icon2 = forefind(fore2, `${forecast.daily[2].weather[0].icon}`, `${Math.round(forecast.daily[2].temp.day)}`, `${Math.round(forecast.daily[2].temp.min)}`, box2);
-
+    const icon2 = forefind(fore2, `${forecast.daily[2].weather[0].icon}`, `${Math.round(forecast.daily[2].temp.max)}`, `${Math.round(forecast.daily[2].temp.min)}`, box2);
 
     //BOX 3
     let box3 = document.querySelector('.box3');
     let fore3 = foreBuilder(new Date(`${forecast.daily[3].dt}` * 1000));
-    const icon3 = forefind(fore3, `${forecast.daily[3].weather[0].icon}`, `${Math.round(forecast.daily[3].temp.day)}`, `${Math.round(forecast.daily[3].temp.min)}`, box3);
-
+    const icon3 = forefind(fore3, `${forecast.daily[3].weather[0].icon}`, `${Math.round(forecast.daily[3].temp.max)}`, `${Math.round(forecast.daily[3].temp.min)}`, box3);
 
     //BOX 4
     let box4 = document.querySelector('.box4');
     let fore4 = foreBuilder(new Date(`${forecast.daily[4].dt}` * 1000));
-    const icon4 = forefind(fore4, `${forecast.daily[4].weather[0].icon}`, `${Math.round(forecast.daily[4].temp.day)}`, `${Math.round(forecast.daily[4].temp.min)}`, box4);
-
+    const icon4 = forefind(fore4, `${forecast.daily[4].weather[0].icon}`, `${Math.round(forecast.daily[4].temp.max)}`, `${Math.round(forecast.daily[4].temp.min)}`, box4);
 
     //BOX 5
     let box5 = document.querySelector('.box5');
     let fore5 = foreBuilder(new Date(`${forecast.daily[5].dt}` * 1000));
-    const icon5 = forefind(fore5, `${forecast.daily[5].weather[0].icon}`, `${Math.round(forecast.daily[5].temp.day)}`, `${Math.round(forecast.daily[5].temp.min)}`, box5);
+    const icon5 = forefind(fore5, `${forecast.daily[5].weather[0].icon}`, `${Math.round(forecast.daily[5].temp.max)}`, `${Math.round(forecast.daily[5].temp.min)}`, box5);
 
 
 
@@ -380,8 +358,6 @@ function daily_forecast(forecast) {
         else if (icon == "50d" || icon == "50n") {
             box.innerHTML = `${fore}<br><img src="images/icons/50d.png" style="margin-top: 15px;"><br>${max}&#176;c<br>${min}&#176;c`;
         }
-
-
     }
 
 
@@ -393,13 +369,11 @@ function daily_forecast(forecast) {
     $("#bx5").click({ val: 5 }, which_box);
 
 
-
     function which_box(event) {
 
         let num = event.data.val;
 
         console.log(num);
-
 
         $(".feel_morn").text(Math.round(forecast.daily[num].feels_like.morn));
         $(".feel_after").text(Math.round(forecast.daily[num].feels_like.day));
@@ -420,7 +394,6 @@ function daily_forecast(forecast) {
 
         $(".fore_desc").text(`${forecast.daily[num].weather[0].description}`);
 
-
         function dateBuilder(d) {
             let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -434,8 +407,6 @@ function daily_forecast(forecast) {
 
             return `${day}, ${date} ${month} ${year}`;
         }
-
-
 
         $(".temp_morn").text(Math.round(forecast.daily[num].temp.morn));
         $(".temp_after").text(Math.round(forecast.daily[num].temp.day));
@@ -462,8 +433,6 @@ function daily_forecast(forecast) {
             var time = date.toLocaleTimeString();
             return `${time}`;
         }
-
-
 
 
         /**********************************************************/
@@ -494,9 +463,7 @@ function daily_forecast(forecast) {
 
 function daily_forecast_bit(forecast) {
 
-
-    console.log(forecast);
-
+    console.log("16 Days Forecast",forecast);
 
     var user_dmy = fdate;
     console.log("Date " + user_dmy);
@@ -521,10 +488,6 @@ function daily_forecast_bit(forecast) {
             }
 
 
-
-
-
-
             $(".clouds").text(Math.round(forecast.data[i].clouds));
             $(".clouds_low").text(Math.round(forecast.data[i].clouds_low));
             $(".clouds_mid").text(Math.round(forecast.data[i].clouds_mid));
@@ -534,13 +497,7 @@ function daily_forecast_bit(forecast) {
             let fore = new Date(forecast.data[i].ts * 1000);
             $(".fore_D-M-Y").text(dateBuilder(fore));
 
-
             $(".fore_temp").text(Math.round(forecast.data[i].temp));
-
-            // var fore_iconcode = `${forecast.daily[num].weather[0].icon}`
-            // var fore_icon = "images/icons/" + fore_iconcode + ".png";
-            // $('#fore_icon').attr('src', fore_icon);
-
 
             $(".fore_desc").text(`${forecast.data[i].weather.description}`);
 
@@ -558,7 +515,6 @@ function daily_forecast_bit(forecast) {
 
                 return `${day}, ${date} ${month} ${year}`;
             }
-
 
 
             $(".low_temp").text(Math.round(forecast.data[i].low_temp));
@@ -591,9 +547,7 @@ function daily_forecast_bit(forecast) {
             }
 
 
-
-
-            // /**********************************************************/
+            //**********************************************************/
 
 
             $(".fore_dew").text(Math.round(forecast.data[i].dewpt));
@@ -611,12 +565,6 @@ function daily_forecast_bit(forecast) {
             $(".fore_uvi").text(Math.round(forecast.data[i].uv));
 
             $(".fore_moon_phase").text(Math.round(forecast.data[i].moon_phase));
-
-
-
-
-
-
 
             break;
 
@@ -636,36 +584,25 @@ function daily_forecast_bit(forecast) {
 
 
 
-
-
-
-
-
-
 //************************************************************************************************************************* */
 //                                                   AIR POLLUTION
 
 
 function air_pollution(air) {
 
-    console.log(air);
-
+    console.log("Alert:",air);
 
     //AIR QUALITY INDEX
     $(".aqi").text(`${air.data[0].aqi}`);
 
-
     //CO
     $(".co").text(`${air.data[0].co}`);
-
 
     //MOLD LEVEL
     $(".mold_level").text(`${air.data[0].mold_level}`);
 
-
     //NO2
     $(".no2").text(`${air.data[0].no2}`);
-
 
     //O3
     $(".o3").text(`${air.data[0].o3}`);
@@ -673,47 +610,44 @@ function air_pollution(air) {
     //SO2
     $(".so2").text(`${air.data[0].so2}`);
 
-
     //PM10
     $(".pm10").text(`${air.data[0].pm10}`);
-
 
     //PM25
     $(".pm25").text(`${air.data[0].pm25}`);
 
-
     //GRASS
     $(".grass").text(`${air.data[0].pollen_level_grass}`);
-
 
     //WEED
     $(".weed").text(`${air.data[0].pollen_level_weed}`);
 
-
     //STATE CODE
     $(".city_name").text(`${air.city_name}`);
-
 
     //TREE
     $(".tree").text(`${air.data[0].pollen_level_tree}`);
 
-
     //PREDOM
     $(".predom").text(`${air.data[0].predominant_pollen_type}`);
-
 
 }
 
 
 
-//ALERT BOX
+//************************************************************************************************************************* */
+//                                                   ALERT BOX
+
+
 function alert_open(alert) {
+
+	console.log(alert)
 
     $(".title_alert").text(`${alert.title}`);
 
     $(".description_alert").text(`${alert.description}`)
 
-    $(".Severity").text(`${alert.severity}`);
+    $(".severity").text(`${alert.severity}`);
 
     $(".effective_utc").text(`${alert.effective_utc}`);
 
@@ -723,24 +657,11 @@ function alert_open(alert) {
 
     $(".expires_utc").text(`${alert.expires_utc}`);
 
-    $(".uri").text(`${alert.uri}`);
+    $(".url").text(`${alert.uri}`);
 
     $(".regions").text(`${alert.regions}`);
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -766,7 +687,6 @@ function closeairbox() {
 }
 
 
-
 //FORECAST SIDE BOX
 function open_fore_sidebox() {
     document.getElementById("fore_sidebox").style.width = "100%";
@@ -777,6 +697,15 @@ function close_fore_sidebox() {
 }
 
 
+//HISTORICAL DATA SIDE BOX
+function open_history_sidebox() {
+    document.getElementById("history_sidebox").style.width = "100%";
+}
+
+function close_history_sidebox() {
+    document.getElementById("history_sidebox").style.width = "0";
+}
+
 
 //MAP LARGE SIDE BOX
 function open_mapbox() {
@@ -784,9 +713,8 @@ function open_mapbox() {
 }
 
 function close_mapbox() {
-   document.getElementById("mapbox").style.width = "0";
+    document.getElementById("mapbox").style.width = "0";
 }
-	
 
 
 //GOOGLE MAP
@@ -794,13 +722,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWthc2hyYW1hbiIsImEiOiJja2Q3YXpmamowN3Z6MnlzO
 var map_large = new mapboxgl.Map({
     container: 'map_large', // container id
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: { lat: 51.51, lng: -0.13 }, // starting position
+    center: { lat: 11, lng: 76.97 }, // starting position
     zoom: 9 // starting zoom
 });
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: { lat: 51.51, lng: -0.13 }, // starting position
+    center: { lat: 11, lng: 76.97 }, // starting position
     zoom: 9 // starting zoom
 });
 
@@ -809,15 +737,14 @@ map.addControl(new mapboxgl.NavigationControl());
 
 
 
-
 //SCREEN LOADER BEFORE PAGE STARTS
 $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
 $(window).on('load', function () {
-	setTimeout(removeLoader, 0000); //wait for page load PLUS two seconds.
+    setTimeout(removeLoader, 0000); //wait for page load PLUS two seconds.
 });
 function removeLoader() {
-	$("#loadingDiv").fadeOut(500, function () {
-    	// fadeOut complete. Remove the loading div
+    $("#loadingDiv").fadeOut(500, function () {
+        // fadeOut complete. Remove the loading div
         $("#loadingDiv").remove(); //makes page more lightweight 
-	});
+    });
 }
