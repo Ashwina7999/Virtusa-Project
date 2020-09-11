@@ -87,7 +87,7 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 * Profile
 
 
-![sidebar](https://user-images.githubusercontent.com/59051731/90725640-20da0e80-e2de-11ea-8638-ffc8eb6a33fc.png)
+![screenshot(1)](https://user-images.githubusercontent.com/59051731/92922543-a4a59780-f453-11ea-8f33-20f0b1dee4d5.png)
 
 
 ---
@@ -102,7 +102,7 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 
 ### FORECAST PAGE
 
-![Screenshot (403)](https://user-images.githubusercontent.com/59051731/89892240-00ca9100-dbf4-11ea-83cf-732d8b8a9a39.png)
+![Screenshot (403)](https://user-images.githubusercontent.com/59051731/92922947-4331f880-f454-11ea-88e3-5d696997800c.png)
 
 ![Screenshot (404)](https://user-images.githubusercontent.com/59051731/89892250-02945480-dbf4-11ea-8555-275bd942aa98.png)
 
@@ -126,24 +126,25 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 
 ### NO ALERT
 
-![Screenshot (426)](https://user-images.githubusercontent.com/59051731/90717862-39dac380-e2ce-11ea-8d0a-cd5d8b5de10b.png)
+![screenshot(2)](https://user-images.githubusercontent.com/59051731/92922620-c010a280-f453-11ea-8671-4fa9a1c74a8f.png)
 
-![Screenshot (427)](https://user-images.githubusercontent.com/59051731/90717851-334c4c00-e2ce-11ea-8172-5c3f3997b0f0.png)
+![screenshot(3)](https://user-images.githubusercontent.com/59051731/92922635-c4d55680-f453-11ea-9e69-a0a0171ee9af.png)
 
 
 <br>
 
 ### DURING ALERT
 
-![Screenshot (420)](https://user-images.githubusercontent.com/59051731/90717796-0dbf4280-e2ce-11ea-991a-b4aef88d8c95.png)
+![screenshot(4)](https://user-images.githubusercontent.com/59051731/92922699-de769e00-f453-11ea-80c7-7e08a0ae9e15.png)
 
-![Screenshot (421)](https://user-images.githubusercontent.com/59051731/90717802-131c8d00-e2ce-11ea-93bb-496c5f94716c.png)
+![screenshot(5)](https://user-images.githubusercontent.com/59051731/92922704-e20a2500-f453-11ea-828a-a538da38ffe7.png)
 
 <br><br>
 
 ### PROFILE PAGE
 
-![Screenshot (463)](https://user-images.githubusercontent.com/59051731/90714822-2c214000-e2c6-11ea-9f07-8730b4133f29.png)
+![Screenshot (658)](https://user-images.githubusercontent.com/59051731/92921153-2ea03100-f451-11ea-914f-441d46df3f12.png)
+
 
 
 <br>
