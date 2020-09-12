@@ -52,11 +52,11 @@ $(document).ready(function () {
         });
 
         //AIR QUALITY FROM WEATHER BIT
-        // $.ajax({
-        //     url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
-        //         air_pollution(air);
-        //     }
-        // });
+        $.ajax({
+            url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
+                air_pollution(air);
+            }
+        });
 
 
         //ALERT BOX FROM WEATHER BIT
