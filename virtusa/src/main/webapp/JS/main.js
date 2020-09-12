@@ -14,8 +14,10 @@ const wb_api = {
 //USER REGISTERED CITY IN DATABASE
 let cities = document.getElementById('cities').value;
 
-let lat = '';
-let long = '';
+
+let lat = '';       //GLOBAL VARIABLE
+let long = '';      //GLOBAL VARIABLE
+let fcast = '';     //GLOBAL VARIABLE
 
 
 $(document).ready(function () {
@@ -36,26 +38,26 @@ $(document).ready(function () {
         $.ajax({
             url: `${api.base}weather?q=${query}&units=metric&APPID=${api.key}`, success: function (result) {
                 lat = result.coord.lat;
-                long = result.coord.lon;			    
+                long = result.coord.lon;
                 displayResults(result);
             }
         });
-
-        //AIR QUALITY FROM WEATHER BIT
-         $.ajax({
-             url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
-                 air_pollution(air);
-             }
-         });
 
         //DAILY FORECAST 16 DAYS FROM WEATHER BIT
         $.ajax({
             url: `${wb_api.base}forecast/daily?city=${query}&units=metric&key=${wb_api.key}`, success: function (result) {
                 fcast = result;
-                daily_forecast_bit(result);
-
+                console.log("16 Days Forecast API", fcast);
             }
         });
+
+        //AIR QUALITY FROM WEATHER BIT
+        // $.ajax({
+        //     url: `${wb_api.base}current/airquality?city=${query}&key=${wb_api.key}`, success: function (air) {
+        //         air_pollution(air);
+        //     }
+        // });
+
 
         //ALERT BOX FROM WEATHER BIT
         $.ajax({
@@ -70,7 +72,7 @@ $(document).ready(function () {
 
     function displayResults(weather) {
 
-        console.log("Current Weather", weather);
+        console.log("Current Weather API", weather);
 
         //DAILY FORECAST 7 DAYS FROM OPEN WEATHER MAP
         $.ajax({
@@ -254,38 +256,6 @@ $(document).ready(function () {
 
 
 
-//***************************************************************************************************
-
-var fcast = '';
-var fdate = generate(new Date());
-
-function castmore() {
-    let fin = document.getElementById('inpt');
-    fdate = fin.value;
-    console.log("Submit " + fdate);
-    daily_forecast_bit(fcast);
-};
-
-
-function generate(now) {
-    let months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-    let dates = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
-        "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-        "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
-
-    let date = dates[now.getDate()];
-    let month = months[now.getMonth()];
-    let year = now.getFullYear();
-    return `${date}/${month}/${year}`
-
-
-}
-//**************************************************************************************************
-
-
-
-
-
 
 
 //******************************************************************************************************************************************************************* */
@@ -294,8 +264,8 @@ function generate(now) {
 
 
 function daily_forecast(forecast) {
-	
-    console.log("7 Days Forecast", forecast);
+
+	console.log("7 Days Forecast API", forecast);
 
     //BOX 1
     let box1 = document.querySelector('.box1');
@@ -453,7 +423,12 @@ function daily_forecast(forecast) {
 
         $(".fore_clouds").text(forecast.daily[num].clouds);
 
-        $(".fore_rain").text(Math.round(forecast.daily[num].rain));
+		if(forecast.daily[num].rain == undefined) {
+			$(".fore_rain").text(0);
+		}
+		else {
+			$(".fore_rain").text(Math.round(forecast.daily[num].rain));
+		}
 
         $(".fore_uvi").text(Math.round(forecast.daily[num].uvi));
 
@@ -466,34 +441,30 @@ function daily_forecast(forecast) {
 
 
 //**************************************************************************************************************************************************************************
-//							          16 DAYS FORECAST	
+//																16 DAYS FORECAST
+
+
+$('#forecastbtn').click(function () {
+    daily_forecast_bit(fcast);
+});
+
 
 
 function daily_forecast_bit(forecast) {
 
-    console.log("16 Days Forecast", forecast);
 
-    var user_dmy = fdate;
-    console.log("Date " + user_dmy);
-    var i; var t = 0;
-    // let [year, month, date] = forecast.data[0].valid_date.split("-")
-    // var current_dmy = date + "/" + month + "/" + year;
+    let user_dmy = document.getElementById('forecast_inpt').value
+    var t = 0;
 
-    for (i = 0; i < 16; i++) {
+    for (i = 1; i < 16; i++) {
 
         let [year, month, date] = forecast.data[i].valid_date.split("-")
         var fore_dmy = date + "/" + month + "/" + year;
 
         if (fore_dmy == user_dmy) {
             t = t + 1;
-            console.log("forecast date matched", i);
-
-            curr_date = generate(new Date());
-            console.log("current date", curr_date);
-            console.log("user date", user_dmy);
-            if (curr_date != user_dmy) {
-                document.getElementById('id02').style.display = 'block';
-            }
+                
+            document.getElementById('id02').style.display = 'block';
 
 
             $(".clouds").text(Math.round(forecast.data[i].clouds));
@@ -579,6 +550,8 @@ function daily_forecast_bit(forecast) {
         }
     }
 
+    user_dmy = 0;
+
     if (t == 0) {
         let [year_s, month_s, date_s] = forecast.data[1].valid_date.split("-")
         start = date_s + "/" + month_s + "/" + year_s;
@@ -608,6 +581,7 @@ $('#historybtn').click(function () {
 
     $.ajax({
         url: `${api.base}onecall/timemachine?lat=${lat}&lon=${long}&dt=${history_dmy}&units=metric&exclude=current,hourly&appid=${api.key}`, success: function (his) {
+            console.log("Historical Data API", his);
             historical_data(his);
         }
     });
@@ -616,8 +590,6 @@ $('#historybtn').click(function () {
 
 
 function historical_data(his) {
-
-    console.log("Historical Data", his);
 
     document.getElementById('id01').style.display = 'block';
 
@@ -712,13 +684,14 @@ function historical_data(his) {
 
 
 
+
 //************************************************************************************************************************* */
 //                                                   AIR POLLUTION
 
 
 function air_pollution(air) {
 
-    console.log("Air pollution",air);
+    console.log("Air Pollution Data API", air);
 
     //AIR QUALITY INDEX
     $(".aqi").text(`${air.data[0].aqi}`);
@@ -769,7 +742,7 @@ function air_pollution(air) {
 
 function alert_open(alert) {
 
-    console.log("Alert",alert)
+	console.log("Alert message API", alert)
 
     $(".title_alert").text(`${alert.title}`);
 
