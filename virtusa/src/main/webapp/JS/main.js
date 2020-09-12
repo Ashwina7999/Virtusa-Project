@@ -14,6 +14,8 @@ const wb_api = {
 //USER REGISTERED CITY IN DATABASE
 let cities = document.getElementById('cities').value;
 
+let lat = '';
+let long = '';
 
 
 $(document).ready(function () {
@@ -33,6 +35,8 @@ $(document).ready(function () {
         //CURRENT WEATHER FROM OPEN WEATHER MAP 
         $.ajax({
             url: `${api.base}weather?q=${query}&units=metric&APPID=${api.key}`, success: function (result) {
+                lat = result.coord.lat;
+                long = result.coord.lon;			    
                 displayResults(result);
             }
         });
@@ -66,12 +70,11 @@ $(document).ready(function () {
 
     function displayResults(weather) {
 
-        console.log("Current Weather:"weather);
+        console.log("Current Weather", weather);
 
         //DAILY FORECAST 7 DAYS FROM OPEN WEATHER MAP
         $.ajax({
             url: `${api.base}onecall?lat=${weather.coord.lat}&lon=${weather.coord.lon}&units=metric&exclude=current,hourly,minutely&appid=${api.key}`, success: function (forecast) {
-                console.log("7 Days Forecast",forecast);
                 daily_forecast(forecast);
 
             }
@@ -291,6 +294,8 @@ function generate(now) {
 
 
 function daily_forecast(forecast) {
+	
+    console.log("7 Days Forecast", forecast);
 
     //BOX 1
     let box1 = document.querySelector('.box1');
@@ -460,10 +465,13 @@ function daily_forecast(forecast) {
 }
 
 
+//**************************************************************************************************************************************************************************
+//							          16 DAYS FORECAST	
+
 
 function daily_forecast_bit(forecast) {
 
-    console.log("16 Days Forecast",forecast);
+    console.log("16 Days Forecast", forecast);
 
     var user_dmy = fdate;
     console.log("Date " + user_dmy);
@@ -584,13 +592,133 @@ function daily_forecast_bit(forecast) {
 
 
 
+
+//***************************************************************************************************************************************
+//                                                    HISTORICAL DATA
+
+
+
+$('#historybtn').click(function () {
+
+    let [date, month, year] = document.getElementById('history_inpt').value.split("/")
+
+    date = parseInt(date) + 1;
+
+    var history_dmy = new Date(year + "." + month + "." + date).getTime() / 1000
+
+    $.ajax({
+        url: `${api.base}onecall/timemachine?lat=${lat}&lon=${long}&dt=${history_dmy}&units=metric&exclude=current,hourly&appid=${api.key}`, success: function (his) {
+            historical_data(his);
+        }
+    });
+
+});
+
+
+function historical_data(his) {
+
+    console.log("Historical Data", his);
+
+    document.getElementById('id01').style.display = 'block';
+
+    $(".feel_morn").text(Math.round(his.hourly[1].feels_like));
+    $(".feel_after").text(Math.round(his.hourly[7].feels_like));
+    $(".feel_even").text(Math.round(his.hourly[13].feels_like));
+    $(".feel_night").text(Math.round(his.hourly[16].feels_like));
+
+
+    let fore = new Date(his.hourly[1].dt * 1000);
+    $(".fore_D-M-Y").text(dateBuilder(fore));
+
+
+    $(".fore_temp").text(Math.round(his.hourly[7].temp));
+
+    var his_iconcode = `${his.hourly[7].weather[0].icon}`
+    var his_icon = "images/icons/" + his_iconcode + ".png";
+    $('#fore_icon').attr('src', his_icon);
+
+
+    $(".fore_desc").text(`${his.hourly[7].weather[0].description}`);
+
+    function dateBuilder(d) {
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let dates = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+            "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+            "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
+        let day = days[d.getDay()];
+        let date = dates[d.getDate()];
+        let month = months[d.getMonth()];
+        let year = d.getFullYear();
+
+        return `${day}, ${date} ${month} ${year}`;
+    }
+
+    $(".temp_morn").text(Math.round(his.hourly[1].temp));
+    $(".temp_after").text(Math.round(his.hourly[7].temp));
+    $(".temp_even").text(Math.round(his.hourly[13].temp));
+    $(".temp_night").text(Math.round(his.hourly[16].temp));
+
+
+    $(".fore_humi").text(Math.round(his.hourly[7].humidity));
+
+    $(".fore_press").text(his.hourly[7].pressure);
+
+    $(".fore_feels").text(Math.round(his.hourly[7].feels_like));
+
+    $(".fore_wind_d").text(Math.round(his.hourly[7].wind_deg));
+
+    $(".fore_sun_rise").text(sun_rise_set(his.current.sunrise));
+
+    $(".fore_wind_s").text(Math.round(his.hourly[7].wind_speed));
+
+    $(".fore_sun_set").text(sun_rise_set(his.current.sunset));
+
+    $(".fore_visi").text(Math.round(his.hourly[7].visibility));
+
+    function sun_rise_set(t) {
+        var date = new Date(t * 1000);
+        var time = date.toLocaleTimeString();
+        return `${time}`;
+    }
+
+
+    /**********************************************************/
+
+
+    $(".fore_dew").text(Math.round(his.hourly[7].dew_point));
+
+    $(".fore_pop").text(Math.round(his.current.feels_like));
+
+    $(".fore_min_t").text(Math.round(his.hourly[0].temp));
+
+    $(".fore_max_t").text(Math.round(his.hourly[8].temp));
+
+    $(".fore_clouds").text(his.hourly[7].clouds);
+    if (his.current.rain == undefined) {
+        $(".fore_rain").text(0);
+    }
+    else {
+        $(".fore_rain").text(Math.round(his.current.rain));
+    }
+    $(".fore_uvi").text(Math.round(his.current.uvi));
+
+    $(".fore_main").text(his.hourly[7].weather[0].main);
+
+
+}
+
+
+
+
+
 //************************************************************************************************************************* */
 //                                                   AIR POLLUTION
 
 
 function air_pollution(air) {
 
-    console.log("Alert:",air);
+    console.log("Air pollution",air);
 
     //AIR QUALITY INDEX
     $(".aqi").text(`${air.data[0].aqi}`);
@@ -641,7 +769,7 @@ function air_pollution(air) {
 
 function alert_open(alert) {
 
-	console.log(alert)
+    console.log("Alert",alert)
 
     $(".title_alert").text(`${alert.title}`);
 
