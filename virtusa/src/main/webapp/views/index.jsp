@@ -504,11 +504,11 @@
                     <div class="card card-1">
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="input--style-1 js-datepicker" id="inpt" name="fname" autocomplete="off"
-                                    type="text" placeholder="DD/MM/YY" name="birthday">
+                                <input class="input--style-1 js-datepicker" id="history_inpt" autocomplete="off"
+                                    type="text" placeholder="DD/MM/YY">
                                 <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                             </div>
-                            <button class="btn danger" onclick="castmore()">Submit</button>
+                            <button class="btn danger" id="historybtn" >Submit</button>
                         </div>
                     </div>
                 </div>
