@@ -16,9 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <!-- MAPBOX-->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
+    <!-- GOOGLE MAP-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1R5QWrqEMfU9qPpah3ufkQmeSWBEVtRo&libraries=places" async defer></script>
     <!-- AJAX JQUERY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- DATE PICKER FORECAST CSS-->
@@ -62,7 +61,7 @@
                 <div class="col-sm-4">
                     <br>
                     <h1 class="city">Coimbatore</h1>
-                    <p class="D-M-Y">Friday, 11 September 2020</p>
+                    <p class="D-M-Y">Friday, 11 August 2020</p>
                     <p class="country">IN</P>
                     <p class="temperature"><mark class="temp">26</mark><mark
                             style="background:none;color: white;margin-left: -30px">°c</mark><img id="icon"
@@ -103,7 +102,7 @@
                 <!-- 3rd ROW BOX-->
                 <div class="col-sm-4">
                     <br>
-                    <div id="map" class="map" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></div>
+                    <div id="map" class="map"></div>
                     <br> <br> <br>
                 </div>
 
@@ -886,8 +885,7 @@
             <br><br><br><br>
 
             <div class="two" style="background-color: white;height: 600px;width: 1600px">
-                <div id="map_large" class="map_large" frameborder="0" allowfullscreen="" aria-hidden="false"
-                    tabindex="0" style="height: 100%;width: 100%"></div>
+                 <div id="map_large" class="map_large" style="height: 100%;width: 100%"></div>
             </div>
         </div>
 
