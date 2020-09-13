@@ -84,17 +84,15 @@ $(document).ready(function () {
 
 
         //GOOGLE MAP
-        var map_large = new mapboxgl.Map({
-            container: 'map_large', // container id
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: { lat: `${weather.coord.lat}`, lng: `${weather.coord.lon}` }, // starting position
-            zoom: 9 // starting zoom
+        var map = new google.maps.Map(document.getElementById("map"), {
+            mapTypeControl: false,
+            center: {lat: weather.coord.lat, lng: weather.coord.lon},
+            zoom: 9
         });
-        var map = new mapboxgl.Map({
-            container: 'map', // container id
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: { lat: `${weather.coord.lat}`, lng: `${weather.coord.lon}` }, // starting position
-            zoom: 9 // starting zoom
+
+        var map_large = new google.maps.Map(document.getElementById("map_large"), {
+            center: {lat: weather.coord.lat, lng: weather.coord.lon},
+            zoom: 9
         });
 
 
@@ -265,7 +263,7 @@ $(document).ready(function () {
 
 function daily_forecast(forecast) {
 
-	console.log("7 Days Forecast API", forecast);
+    console.log("7 Days Forecast API", forecast);
 
     //BOX 1
     let box1 = document.querySelector('.box1');
@@ -742,7 +740,7 @@ function air_pollution(air) {
 
 function alert_open(alert) {
 
-	console.log("Alert message API", alert)
+    console.log("Alert message API", alert)
 
     $(".title_alert").text(`${alert.title}`);
 
@@ -819,22 +817,15 @@ function close_mapbox() {
 
 
 //GOOGLE MAP
-mapboxgl.accessToken = 'pk.eyJ1IjoiYWthc2hyYW1hbiIsImEiOiJja2Q3YXpmamowN3Z6MnlzOHlxYms5dTRoIn0.GXTYidZePo1PPu_Wvr0wWg';
-var map_large = new mapboxgl.Map({
-    container: 'map_large', // container id
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: { lat: 11, lng: 76.97 }, // starting position
-    zoom: 9 // starting zoom
+var map = new google.maps.Map(document.getElementById("map"), {
+    mapTypeControl: false,
+    center: {lat: 11, lng: 76.9},
+    zoom: 9
 });
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: { lat: 11, lng: 76.97 }, // starting position
-    zoom: 9 // starting zoom
+var map_large = new google.maps.Map(document.getElementById("map_large"), {
+    center: {lat: 11, lng: 76.9},
+    zoom: 9
 });
-
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl());
 
 
 
