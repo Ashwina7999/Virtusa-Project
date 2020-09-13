@@ -1,6 +1,6 @@
 # Weather Forecast Application
 
-Web application for displaying the Current weather, Air pollution data, Forecasting, Maps and Alert Message (if available).  
+Web application for displaying the Current weather, Air pollution data, Forecasting, Maps, Historical data and Alert Messages (if available).  
 
 ### Tech stack
 
@@ -35,9 +35,9 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 #### HOME PAGE
 #### VIEW 1
 
-![Screenshot (379)](https://user-images.githubusercontent.com/59051731/89890781-90bb0b80-dbf1-11ea-8056-7882b17852e3.png)
+![Screenshot (309)](https://user-images.githubusercontent.com/59051731/93023519-2b51a480-f60d-11ea-9bf5-6c2c7d4746d9.png)
 
-![Screenshot (380)](https://user-images.githubusercontent.com/59051731/89890841-a92b2600-dbf1-11ea-8779-3a5ff94168f5.png)
+![Screenshot (310)](https://user-images.githubusercontent.com/59051731/93023540-563bf880-f60d-11ea-81ef-3729888ed060.png)
 
 
 <br><br>
@@ -62,9 +62,9 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 
 #### VIEW 4
 
-![Screenshot (397)](https://user-images.githubusercontent.com/59051731/89891184-3cfcf200-dbf2-11ea-8443-abb0ea15e65c.png)
+![Screenshot (397)](https://user-images.githubusercontent.com/59051731/93023774-fc3c3280-f60e-11ea-89d3-0a52153afe43.png)
 
-![Screenshot (398)](https://user-images.githubusercontent.com/59051731/89891175-39696b00-dbf2-11ea-8a66-806dc123e9eb.png)
+![Screenshot (398)](https://user-images.githubusercontent.com/59051731/93023789-137b2000-f60f-11ea-9623-088542f3cf15.png)
 
 
 <br><br>
@@ -84,6 +84,7 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 * Forecast
 * Maps
 * City Alerts
+* Historical Data
 * Profile
 
 
@@ -104,18 +105,18 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 
 ![Screenshot (403)](https://user-images.githubusercontent.com/59051731/92922947-4331f880-f454-11ea-88e3-5d696997800c.png)
 
-![Screenshot (404)](https://user-images.githubusercontent.com/59051731/89892250-02945480-dbf4-11ea-8555-275bd942aa98.png)
+![Screenshot (404)](https://user-images.githubusercontent.com/59051731/93023873-b895f880-f60f-11ea-9829-50301fd92bac.png)
 
-![Screenshot (405)](https://user-images.githubusercontent.com/59051731/89892254-04f6ae80-dbf4-11ea-89f3-b972d725f0a7.png)
+![Screenshot (407)](https://user-images.githubusercontent.com/59051731/93023560-75d32100-f60d-11ea-93ad-89de9ccd06a9.png)
 
-![Screenshot (406)](https://user-images.githubusercontent.com/59051731/89892224-fc9e7380-dbf3-11ea-8c68-e36051236983.png)
+![Screenshot (408)](https://user-images.githubusercontent.com/59051731/93023570-8b484b00-f60d-11ea-9cd3-9209f2fd967f.png)
 
 
 <br><br>
 
 ### MAP PAGE
 
-![Screenshot (414)](https://user-images.githubusercontent.com/59051731/89892425-425b3c00-dbf4-11ea-899a-0a1cd74252d8.png)
+![Screenshot (697)](https://user-images.githubusercontent.com/59051731/93023578-99966700-f60d-11ea-9671-2e05d92d2555.png)
 
 
 
@@ -126,18 +127,30 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 
 ### NO ALERT
 
-![screenshot(2)](https://user-images.githubusercontent.com/59051731/92922620-c010a280-f453-11ea-8671-4fa9a1c74a8f.png)
+![screenshot(2)](https://user-images.githubusercontent.com/59051731/93024027-b84a2d00-f610-11ea-8b63-29c19771fbba.png)
 
-![screenshot(3)](https://user-images.githubusercontent.com/59051731/92922635-c4d55680-f453-11ea-9e69-a0a0171ee9af.png)
+![screenshot(3)](https://user-images.githubusercontent.com/59051731/93024029-bbddb400-f610-11ea-876d-3f41462467c6.png)
 
 
 <br>
 
 ### DURING ALERT
 
-![screenshot(4)](https://user-images.githubusercontent.com/59051731/92922699-de769e00-f453-11ea-80c7-7e08a0ae9e15.png)
+![screenshot(4)](https://user-images.githubusercontent.com/59051731/93024030-bd0ee100-f610-11ea-9c06-3d5232aed3f9.png)
 
-![screenshot(5)](https://user-images.githubusercontent.com/59051731/92922704-e20a2500-f453-11ea-828a-a538da38ffe7.png)
+![screenshot(5)](https://user-images.githubusercontent.com/59051731/93024031-be400e00-f610-11ea-9fc0-1d3db05e4166.png)
+
+<br><br>
+
+### HISTORICAL DATA PAGE
+
+![Screenshot (701)](https://user-images.githubusercontent.com/59051731/93024300-0fe99800-f613-11ea-9bce-15792c7a3b67.png)
+
+![Screenshot (702)](https://user-images.githubusercontent.com/59051731/93024301-14ae4c00-f613-11ea-8d01-4ab70974ad18.png)
+
+![Screenshot (704)](https://user-images.githubusercontent.com/59051731/93024304-1d9f1d80-f613-11ea-9928-157da6957904.png)
+
+![Screenshot (705)](https://user-images.githubusercontent.com/59051731/93024309-2263d180-f613-11ea-94de-852c98cbe324.png)
 
 <br><br>
 
