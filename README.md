@@ -144,13 +144,13 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 
 ### HISTORICAL DATA PAGE
 
-![Screenshot (701)](https://user-images.githubusercontent.com/59051731/93024300-0fe99800-f613-11ea-9bce-15792c7a3b67.png)
+![Screenshot (701)](https://user-images.githubusercontent.com/59051731/93024482-7fac5280-f614-11ea-9ac3-501eff62135c.png)
 
-![Screenshot (702)](https://user-images.githubusercontent.com/59051731/93024301-14ae4c00-f613-11ea-8d01-4ab70974ad18.png)
+![Screenshot (702)](https://user-images.githubusercontent.com/59051731/93024484-80dd7f80-f614-11ea-9f99-a99014e2f763.png)
 
-![Screenshot (704)](https://user-images.githubusercontent.com/59051731/93024304-1d9f1d80-f613-11ea-9928-157da6957904.png)
+![Screenshot (704)](https://user-images.githubusercontent.com/59051731/93024485-820eac80-f614-11ea-931e-8f399fecc38a.png)
 
-![Screenshot (705)](https://user-images.githubusercontent.com/59051731/93024309-2263d180-f613-11ea-94de-852c98cbe324.png)
+![Screenshot (705)](https://user-images.githubusercontent.com/59051731/93024479-7d49f880-f614-11ea-8d69-727d0acebe8f.png)
 
 <br><br>
 
