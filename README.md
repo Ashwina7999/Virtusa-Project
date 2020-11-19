@@ -159,14 +159,12 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 ![Screenshot (658)](https://user-images.githubusercontent.com/59051731/92921153-2ea03100-f451-11ea-914f-441d46df3f12.png)
 
 
-<br>
+<br><br><br>
 
 ### License & Copyright
 
 Released under the MIT License. Click here to see the [LICENSE](LICENSE) file.
 
 
-
 <br>
-
 
