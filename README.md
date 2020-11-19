@@ -164,3 +164,9 @@ Web application for displaying the Current weather, Air pollution data, Forecast
 ### License & Copyright
 
 Released under the MIT License. Click here to see the [LICENSE](LICENSE) file.
+
+
+
+<br>
+
+
